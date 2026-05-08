@@ -17,6 +17,20 @@ class TestRobot(unittest.TestCase):
         self.assertEqual(robot.orientation, 'N')
 
 
+    def test_turn_right(self):
+        robot = Robot(0, 0, 'N')
+        robot.turn_right()
+        self.assertEqual(robot.orientation, 'E')
+
+        robot.turn_right()
+        self.assertEqual(robot.orientation, 'S')
+
+        robot.turn_right()
+        self.assertEqual(robot.orientation, 'W')
+
+        robot.turn_right()
+        self.assertEqual(robot.orientation, 'N')
+
 if __name__ == '__main__':
     unittest.main()
 
