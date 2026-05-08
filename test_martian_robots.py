@@ -1,5 +1,6 @@
 import unittest
 from src.robot import Robot
+from src.mars import Mars
 
 class TestRobot(unittest.TestCase):
     def test_turn_left(self):
@@ -44,6 +45,23 @@ class TestRobot(unittest.TestCase):
 
         robot.orientation = 'S'
         self.assertEqual(robot.get_next_position(), (2, 1))
+
+
+class TestMars(unittest.TestCase):
+    def test_is_within_bounds(self):
+        mars = Mars(5, 3)
+
+        self.assertTrue(mars.is_within_bounds(0, 0))
+        self.assertTrue(mars.is_within_bounds(5, 3))
+        self.assertTrue(mars.is_within_bounds(2, 2))
+
+        self.assertFalse(mars.is_within_bounds(-1, 0))
+        self.assertFalse(mars.is_within_bounds(6, 0))
+        self.assertFalse(mars.is_within_bounds(0, -1))
+        self.assertFalse(mars.is_within_bounds(0, 4))
+
+
+
 
 
 if __name__ == '__main__':
