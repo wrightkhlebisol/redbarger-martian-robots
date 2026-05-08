@@ -15,4 +15,16 @@ class Robot:
         current_index = directions.index(self.orientation)
         self.orientation = directions[(current_index + 1) % 4]
 
-    
+    def get_next_position(self):
+        next_x, next_y = self.x, self.y
+
+        if self.orientation == 'N':
+            next_y += 1
+        elif self.orientation == 'S':
+            next_y -= 1
+        elif self.orientation == 'E':
+            next_x += 1
+        else:
+            next_x -= 1
+
+        return next_x, next_y
