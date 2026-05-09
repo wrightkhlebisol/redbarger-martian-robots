@@ -7,4 +7,5 @@ class Mars:
     def is_within_bounds(self, x, y):
         return 0 <= x <= self.max_x and 0 <= y <= self.max_y
 
-
+    def has_scent(self, x, y):
+        return (x, y) in self.scents

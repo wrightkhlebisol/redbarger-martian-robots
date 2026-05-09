@@ -60,7 +60,10 @@ class TestMars(unittest.TestCase):
         self.assertFalse(mars.is_within_bounds(0, -1))
         self.assertFalse(mars.is_within_bounds(0, 4))
 
+    def test_has_scent(self):
+        mars = Mars(5, 3)
 
+        self.assertFalse(mars.has_scent(3, 3))
 
 
 
