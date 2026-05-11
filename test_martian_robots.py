@@ -65,6 +65,28 @@ class TestMars(unittest.TestCase):
 
         self.assertFalse(mars.has_scent(3, 3))
 
+        mars.add_scent(3, 3)
+        self.assertTrue(mars.has_scent(3, 3))
+
+        mars.add_scent(3, 3)
+        self.assertTrue(mars.has_scent(3, 3))
+
+    def test_process_basic_movement(self):
+        mars = Mars(5, 3)
+        robot = Robot(1, 1, 'E')
+
+        mars.process_robot(robot, 'F')
+        self.assertEqual(robot.x, 2)
+        self.assertEqual(robot.y, 1)
+        self.assertEqual(robot.orientation, 'E')
+
+        mars.process_robot(robot, 'L')
+        self.assertEqual(robot.orientation, 'N')
+
+        mars.process_robot(robot, 'F')
+        self.assertEqual(robot.x, 2)
+        self.assertEqual(robot.y, 2)
+
 
 
 if __name__ == '__main__':

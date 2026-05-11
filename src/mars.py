@@ -9,3 +9,29 @@ class Mars:
 
     def has_scent(self, x, y):
         return (x, y) in self.scents
+
+    def add_scent(self, x, y):
+        self.scents.add((x, y))
+
+    def process_robot(self, robot, instructions):
+        for instruction in instructions:
+            if robot.lost:
+                break
+
+            if instruction == 'L':
+                robot.turn_left()
+            elif instruction == 'R':
+                robot.turn_right()
+            elif instruction == 'F':
+                next_x, next_y = robot.get_next_position()
+
+                if self.is_within_bounds(next_x, next_y):
+                    robot.x = next_x
+                    robot.y = next_y
+                else:
+                    if not self.has_scent(robot.x, robot.y):
+                        robot.lost = True
+                        self.add_scent(robot.x, robot.y)
+
+        
+                
