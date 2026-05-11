@@ -106,6 +106,18 @@ class TestMars(unittest.TestCase):
         self.assertTrue(robot.lost)
         self.assertTrue(mars.has_scent(3, 3))
 
+    def test_scent_prevents_falling(self):
+        mars = Mars(5, 3)
+
+        robot1 = Robot(3, 3, 'N')
+        mars.process_robot(robot1, 'F')
+        self.assertTrue(robot1.lost)
+
+        robot2 = Robot(3, 3, 'N')
+        mars.process_robot(robot2, 'F')
+        self.assertFalse(robot2.lost)
+        self.assertEqual(robot2.x, 3)
+        self.assertEqual(robot2.y, 3)
 
 
 if __name__ == '__main__':
