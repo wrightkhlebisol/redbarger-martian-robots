@@ -94,6 +94,18 @@ class TestMars(unittest.TestCase):
         self.assertEqual(robot.x, 2)
         self.assertEqual(robot.y, 2)
 
+    def test_process_robot_falling_off(self):
+        mars = Mars(5, 3)
+        robot = Robot(3, 2, 'N')
+
+        mars.process_robot(robot, 'FRRFLLFFRRFLL')
+
+        self.assertEqual(robot.x, 3)
+        self.assertEqual(robot.y, 3)
+        self.assertEqual(robot.orientation, 'N')
+        self.assertTrue(robot.lost)
+        self.assertTrue(mars.has_scent(3, 3))
+
 
 
 if __name__ == '__main__':
