@@ -35,7 +35,7 @@ LLFFFLFLFL
 ## Running Tests
 
 ```bash
-python3 -m test_martian_robots.py -v
+python3 -m test_martian_robots -v
 ```
 
 ## Implementation Details
