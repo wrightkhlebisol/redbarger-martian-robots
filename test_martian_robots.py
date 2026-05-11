@@ -46,6 +46,13 @@ class TestRobot(unittest.TestCase):
         robot.orientation = 'S'
         self.assertEqual(robot.get_next_position(), (2, 1))
 
+    def test_robot_string_representation(self):
+        robot = Robot(1, 2, 'N')
+        self.assertEqual(str(robot), "1 2 N")
+
+        robot.lost = True
+        self.assertEqual(str(robot), "1 2 N LOST")
+
 
 class TestMars(unittest.TestCase):
     def test_is_within_bounds(self):

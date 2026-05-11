@@ -28,3 +28,9 @@ class Robot:
             next_x -= 1
 
         return next_x, next_y
+
+    def __str__(self):
+        result = f"{self.x} {self.y} {self.orientation}"
+        if self.lost:
+            result += " LOST"
+        return result
