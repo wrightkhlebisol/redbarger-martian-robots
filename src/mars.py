@@ -34,4 +34,4 @@ class Mars:
                         self.add_scent(robot.x, robot.y)
 
         
-                
+        return robot                
