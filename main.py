@@ -1,19 +1,17 @@
-from src.input_parser import parse_input
-
+import sys
+from src.parser import parse_input
 
 def main():
-    sample_input = """5 3
-    1 1 E
-    RFRFRFRF
+    if len(sys.argv) > 1:
+        # Read from file
+        with open(sys.argv[1], 'r') as f:
+            input_data = f.read()
+    else:
+        print("Enter input (press Ctrl+D when done):")
+        input_data = sys.stdin.read()
 
-    3 2 N
-    FRRFLLFFRRFLL
+    robots = parse_input(input_data)
 
-    0 3 W
-    LLFFFLFLFL"""
-
-    robots = parse_input(sample_input)
-    
     for robot in robots:
         print(robot)
 
